@@ -1,162 +1,532 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expert Phone Repair - iPhone Repair Services in Australia</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <meta name="description" content="YZ TECH SOLUTIONS - 专业的手机维修服务，位于悉尼Campsie。屏幕更换、电池更换、主板维修、进水处理、数据恢复。">
+    <meta name="keywords" content="手机维修, 屏幕更换, 电池更换, Campsie, 悉尼, 主板维修, 数据恢复">
+    <title>YZ TECH SOLUTIONS PTY LTD | 专业手机维修服务</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Header -->
     <header class="header">
-        <div class="logo">
-            <i class="fas fa-mobile-alt"></i>
-            <span>PhoneFix Pro</span>
-        </div>
-        <nav class="nav-links">
-            <a href="#services">Services</a>
-            <a href="#about">About Us</a>
-            <a href="#contact">Contact</a>
-        </nav>
-        <div class="header-icons">
-            <i class="fas fa-search"></i>
-            <i class="fas fa-user"></i>
-            <i class="fas fa-bars mobile-menu"></i>
+        <div class="container">
+            <nav class="nav">
+                <a href="#home" class="logo">
+                    <span class="logo-icon"><i class="fas fa-microchip"></i></span>
+                    <span class="logo-text">YZ TECH</span>
+                </a>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="nav-link active">首页</a></li>
+                    <li><a href="#services" class="nav-link">服务项目</a></li>
+                    <li><a href="#about" class="nav-link">关于我们</a></li>
+                    <li><a href="#reviews" class="nav-link">客户评价</a></li>
+                    <li><a href="#faq" class="nav-link">常见问题</a></li>
+                    <li><a href="#contact" class="nav-link">联系我们</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="tel:0451879888" class="btn btn-primary btn-sm">
+                        <i class="fas fa-phone"></i> 0451 879 888
+                    </a>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
         </div>
     </header>
 
-    <!-- Carousel -->
-    <section class="carousel">
-        <div class="carousel-container">
-            <div class="carousel-slide active">
-                <div class="slide-content">
-                    <h1>Professional iPhone Repair</h1>
-                    <p>Expert technicians ensuring highest quality repairs</p>
-                    <button class="cta-button">Book Now</button>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-map-marker-alt"></i> 悉尼 Campsie, NSW
                 </div>
-                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=modern%20professional%20smartphone%20repair%20workshop%20with%20technician%20working%20on%20iPhone%20clean%20bright%20environment%20professional%20tools%20circuit%20board%20high%20tech%20repair%20service%20center&image_size=landscape_16_9" alt="Phone Repair">
+                <h1 class="hero-title">
+                    您值得信赖的<br>
+                    <span class="highlight">专业手机维修</span>专家
+                </h1>
+                <p class="hero-subtitle">
+                    快速、可靠、价格实惠的手机维修服务。屏幕更换、电池、主板维修、
+                    进水处理及数据恢复。
+                </p>
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <i class="fas fa-bolt"></i>
+                        <span>快速维修</span>
+                    </div>
+                    <div class="hero-feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>保修服务</span>
+                    </div>
+                    <div class="hero-feature">
+                        <i class="fas fa-tools"></i>
+                        <span>优质配件</span>
+                    </div>
+                    <div class="hero-feature">
+                        <i class="fas fa-dollar-sign"></i>
+                        <span>实惠价格</span>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <a href="#services" class="btn btn-primary btn-lg">
+                        <i class="fas fa-list"></i> 查看服务
+                    </a>
+                </div>
             </div>
-            <div class="carousel-slide">
-                <div class="slide-content">
-                    <h1>Screen Replacement</h1>
-                    <p>Crystal clear screens with lifetime warranty</p>
-                    <button class="cta-button">Get Quote</button>
+            <div class="hero-visual">
+                <div class="hero-phone">
+                    <div class="phone-screen">
+                        <div class="screen-content">
+                            <div class="repair-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="repair-status">
+                                <div class="status-bar">
+                                    <span class="status-label">维修状态</span>
+                                    <span class="status-value">维修中</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20iPhone%20screen%20replacement%20service%20technician%20replacing%20cracked%20screen%20clean%20modern%20repair%20shop%20high%20quality%20display%20repair%20precision%20tools&image_size=landscape_16_9" alt="Screen Repair">
-            </div>
-            <div class="carousel-slide">
-                <div class="slide-content">
-                    <h1>Board Level Repair</h1>
-                    <p>Advanced microsoldering for complex issues</p>
-                    <button class="cta-button">Learn More</button>
-                </div>
-                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=advanced%20microsoldering%20circuit%20board%20repair%20professional%20technician%20working%20on%20iPhone%20logic%20board%20precision%20soldering%20equipment%20microscope%20high%20tech%20repair%20lab%20detailed%20electronic%20components&image_size=landscape_16_9" alt="Board Repair">
-            </div>
-            <div class="carousel-slide">
-                <div class="slide-content">
-                    <h1>Battery Replacement</h1>
-                    <p>Original quality batteries with 1-year warranty</p>
-                    <button class="cta-button">Book Service</button>
-                </div>
-                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=iPhone%20battery%20replacement%20service%20professional%20technician%20installing%20new%20battery%20clean%20modern%20repair%20shop%20high%20quality%20battery%20replacement%20precision%20tools%20original%20quality&image_size=landscape_16_9" alt="Battery Repair">
             </div>
         </div>
-        <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
-        <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
-        <div class="carousel-dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div>
-    </section>
-
-    <!-- Services -->
-    <section id="services" class="services">
-        <h2>Our Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <i class="fas fa-mobile-alt"></i>
-                <h3>iPhone Repair</h3>
-                <ul>
-                    <li>Screen Replacement</li>
-                    <li>Battery Replacement</li>
-                    <li>Board Repair</li>
-                    <li>Camera Repair</li>
-                </ul>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-microchip"></i>
-                <h3>Board Level Repair</h3>
-                <ul>
-                    <li>Chip-level Repair</li>
-                    <li>Data Recovery</li>
-                    <li>Water Damage</li>
-                    <li>No Power Issues</li>
-                </ul>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-tools"></i>
-                <h3>Other Services</h3>
-                <ul>
-                    <li>Accessories Sales</li>
-                    <li>Screen Protection</li>
-                    <li>Data Migration</li>
-                    <li>Software Updates</li>
-                </ul>
-            </div>
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
         </div>
     </section>
 
-    <!-- About Us -->
-    <section id="about" class="about">
-        <div class="about-content">
-            <h2>About Us</h2>
-            <p>We are a professional phone repair center in Australia with years of experience and a skilled technical team. We specialize in iPhone repairs, providing fast, reliable, and high-quality service.</p>
-            <div class="features">
-                <div class="feature">
-                    <i class="fas fa-bolt"></i>
-                    <span>Fast Repair</span>
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">我们的服务</span>
+                <h2 class="section-title">专业维修解决方案</h2>
+                <p class="section-subtitle">
+                    全面的手机维修服务，满足您的所有需求
+                </p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="service-title">屏幕更换</h3>
+                    <p class="service-desc">
+                        屏幕碎裂或损坏？我们提供快速屏幕更换服务，
+                        使用优质显示屏。
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> 当日完成</li>
+                        <li><i class="fas fa-check"></i> 优质屏幕</li>
+                        <li><i class="fas fa-check"></i> 包含保修</li>
+                    </ul>
                 </div>
-                <div class="feature">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>Quality Guarantee</span>
+                <div class="service-card featured">
+                    <div class="service-badge">最受欢迎</div>
+                    <div class="service-icon">
+                        <i class="fas fa-battery-full"></i>
+                    </div>
+                    <h3 class="service-title">电池更换</h3>
+                    <p class="service-desc">
+                        手机耗电太快？我们用高质量新电池更换旧电池。
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> 原厂电池</li>
+                        <li><i class="fas fa-check"></i> 快速更换</li>
+                        <li><i class="fas fa-check"></i> 6个月保修</li>
+                    </ul>
                 </div>
-                <div class="feature">
-                    <i class="fas fa-award"></i>
-                    <span>Expert Tech</span>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3 class="service-title">主板维修</h3>
+                    <p class="service-desc">
+                        复杂主板问题，由我们的专家技术员进行诊断和维修。
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> 专业诊断</li>
+                        <li><i class="fas fa-check"></i> 精密焊接</li>
+                        <li><i class="fas fa-check"></i> 数据保护</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3 class="service-title">进水处理</h3>
+                    <p class="service-desc">
+                        手机掉水里了？我们的专业处理可以挽救您的设备。
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> 超声波清洗</li>
+                        <li><i class="fas fa-check"></i> 零件维修</li>
+                        <li><i class="fas fa-check"></i> 全面检测</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="service-title">数据恢复</h3>
+                    <p class="service-desc">
+                        丢失重要的照片或文件？我们帮助您从损坏的设备中恢复珍贵数据。
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> 支持所有设备</li>
+                        <li><i class="fas fa-check"></i> 安全恢复</li>
+                        <li><i class="fas fa-check"></i> 快速交付</li>
+                    </ul>
+                </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <span class="section-tag">关于我们</span>
+                    <h2 class="section-title">您值得信赖的本地维修专家</h2>
+                    <p class="about-intro">
+                        YZ TECH SOLUTIONS PTY LTD 是一家专业的手机维修公司，
+                        总部位于悉尼Campsie。我们拥有多年经验，为所有主流
+                        智能手机品牌提供优质维修服务。
+                    </p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <div class="about-feature-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="about-feature-content">
+                                <h4>正规注册</h4>
+                                <p>ACN: 696 131 290 | ABN: 23 696 131 290</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="about-feature-content">
+                                <h4>质量保证</h4>
+                                <p>我们只使用优质配件，并提供保修服务</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="about-feature-content">
+                                <h4>专业技师</h4>
+                                <p>经验丰富的技术人员</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="about-feature-content">
+                                <h4>快速交付</h4>
+                                <p>大多数维修当日完成</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="about-card">
+                        <div class="about-card-header">
+                            <i class="fas fa-store"></i>
+                            <span>我们的位置</span>
+                        </div>
+                        <div class="about-card-body">
+                            <p class="address">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Unit 7, 62-64 Park Street<br>
+                                Campsie NSW 2194, Australia
+                            </p>
+                            <div class="hours">
+                                <h5><i class="fas fa-clock"></i> 营业时间</h5>
+                                <ul>
+                                    <li><span>周一至周五：</span> 9:00 AM - 6:00 PM</li>
+                                    <li><span>周六：</span> 10:00 AM - 4:00 PM</li>
+                                    <li><span>周日：</span> 休息</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">已完成维修</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">5★</span>
+                            <span class="stat-label">客户评分</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">2+</span>
+                            <span class="stat-label">年经验</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="about-image">
-            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20skilled%20technician%20repairing%20iPhone%20with%20precision%20tools%20modern%20workshop%20clean%20environment%20high%20tech%20repair%20service%20expert%20technician%20focused%20work&image_size=portrait_4_3" alt="Professional Repair">
         </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <div class="contact-info">
-            <div class="contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <div>
-                    <h3>Address</h3>
-                    <p>123 Tech Street, Sydney, NSW 2000</p>
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">客户评价</span>
+                <h2 class="section-title">听听我们的客户怎么说</h2>
+                <p class="section-subtitle">
+                    不要只听我们说，来听听满意客户的心声
+                </p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">
+                        "服务太棒了！我的iPhone屏幕碎了，他们一小时内就修好了。
+                        专业、友好、价格实惠。强烈推荐！"
+                    </p>
+                    <div class="review-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <span class="author-name">Sarah M.</span>
+                            <span class="author-location">Campsie, NSW</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">
+                        "我的手机掉进水里了，以为完了。YZ Tech救了我的手机！
+                        他们对修复机会很诚实，还帮我恢复了数据。服务一流！"
+                    </p>
+                    <div class="review-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <span class="author-name">James L.</span>
+                            <span class="author-location">Ashfield, NSW</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">
+                        "这片区域最好的手机维修店！价格公道，配件质量好，
+                        店员真的很专业。现在手机问题都找他们。"
+                    </p>
+                    <div class="review-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <span class="author-name">Michelle K.</span>
+                            <span class="author-location">Burwood, NSW</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">
+                        "给我的三星手机换了电池。他们维修时还顺便帮我清理了手机。
+                        对细节的关注令人惊叹。一定会再来！"
+                    </p>
+                    <div class="review-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <span class="author-name">David T.</span>
+                            <span class="author-location">Hurstville, NSW</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="contact-item">
-                <i class="fas fa-phone"></i>
-                <div>
-                    <h3>Phone</h3>
-                    <p>+61 2 9000 0000</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">常见问题</span>
+                <h2 class="section-title">常见问题解答</h2>
+                <p class="section-subtitle">
+                    查找关于我们服务的常见问题答案
+                </p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>一般维修需要多长时间？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>常见的维修如屏幕更换和电池更换通常在1-2小时内完成。
+                        更复杂的维修如主板问题可能需要24-48小时，具体取决于严重程度。
+                        诊断后我们会提供准确的时间估计。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>你们使用原厂或原厂质量的配件吗？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>我们使用符合或超过原始设备制造商标准的高质量替换配件。
+                        我们所有的配件都带有保修。我们相信透明度，
+                        因此在任何维修之前，我们会始终告知您所使用的配件质量。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>你们提供什么保修？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>我们对所有维修提供保修。屏幕和电池更换享有6个月保修。
+                        主板维修享有3个月保修。进水维修享有30天保修。
+                        保修涵盖配件缺陷和工艺问题。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>维修过程中我的数据安全吗？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>是的！我们非常重视数据隐私。在大多数维修中，您的个人数据保持完整。
+                        对于主板维修，我们会格外小心保护您的数据。
+                        我们绝不会访问或分享您的个人信息。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>你们维修哪些品牌？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>我们维修所有主要品牌，包括苹果iPhone、三星Galaxy、
+                        谷歌Pixel、华为、Oppo、Vivo、小米、一加等。
+                        如果您有特定设备，欢迎联系我们确认。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>需要预约吗？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>欢迎直接上门，但建议您提前电话预约以确保快速服务，避免等候。
+                        您可以直接拨打0451 879 888电话预约。</p>
+                    </div>
                 </div>
             </div>
-            <div class="contact-item">
-                <i class="fas fa-clock"></i>
-                <div>
-                    <h3>Business Hours</h3>
-                    <p>Mon-Sun 9:00 AM - 7:00 PM</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header light">
+                <span class="section-tag">联系我们</span>
+                <h2 class="section-title">联系方式</h2>
+                <p class="section-subtitle">
+                    欢迎来电或邮件咨询，我们随时为您服务
+                </p>
+            </div>
+            <div class="contact-info-full">
+                <div class="contact-grid-simple">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>电话</h4>
+                            <a href="tel:0451879888">0451 879 888</a>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>邮箱</h4>
+                            <a href="mailto:yztechsolutions88@gmail.com">yztechsolutions88@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>地址</h4>
+                            <p>Unit 7, 62-64 Park Street<br>Campsie NSW 2194, Australia</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>营业时间</h4>
+                            <p>周一至周五: 9:00 AM - 6:00 PM<br>周六: 10:00 AM - 4:00 PM<br>周日: 休息</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <h4>关注我们</h4>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/61451879888" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -164,8 +534,82 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2024 PhoneFix Pro Australia. All rights reserved.</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#home" class="footer-logo">
+                        <span class="logo-icon"><i class="fas fa-microchip"></i></span>
+                        <span class="logo-text">YZ TECH</span>
+                    </a>
+                    <p class="footer-desc">
+                        位于悉尼Campsie的专业手机维修服务。
+                        快速、可靠、价格实惠的设备维修。
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/61451879888" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#home">首页</a></li>
+                        <li><a href="#services">服务项目</a></li>
+                        <li><a href="#about">关于我们</a></li>
+                        <li><a href="#reviews">客户评价</a></li>
+                        <li><a href="#faq">常见问题</a></li>
+                        <li><a href="#contact">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>我们的服务</h4>
+                    <ul>
+                        <li><a href="#services">屏幕更换</a></li>
+                        <li><a href="#services">电池更换</a></li>
+                        <li><a href="#services">主板维修</a></li>
+                        <li><a href="#services">进水处理</a></li>
+                        <li><a href="#services">数据恢复</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>联系方式</h4>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:0451879888">0451 879 888</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:yztechsolutions88@gmail.com">yztechsolutions88@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Unit 7, 62-64 Park Street<br>Campsie NSW 2194, Australia</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-legal">
+                    <p>YZ TECH SOLUTIONS PTY LTD</p>
+                    <p>ACN 696 131 290 | ABN 23 696 131 290</p>
+                </div>
+                <p class="copyright">© 2024 YZ TECH SOLUTIONS PTY LTD. All Rights Reserved.</p>
+            </div>
+        </div>
     </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <i class="fas fa-check-circle"></i>
+            <span class="toast-message">消息发送成功！</span>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

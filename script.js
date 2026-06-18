@@ -1,172 +1,250 @@
-// Carousel functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const slides = document.querySelectorAll('.carousel-slide');
-    const dots = document.querySelectorAll('.dot');
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
-    let currentSlide = 0;
-    let autoSlideInterval;
+// ===== DOM Elements =====
+const header = document.querySelector('.header');
+const navMenu = document.querySelector('.nav-menu');
+const mobileMenuBtn = document.querySelector('#mobileMenuBtn');
+const navLinks = document.querySelectorAll('.nav-link');
+const faqItems = document.querySelectorAll('.faq-item');
+const quoteForm = document.querySelector('#quoteFormEl');
+const bookingForm = document.querySelector('#bookingForm');
+const toast = document.querySelector('#toast');
 
-    // Function to show a specific slide
-    function showSlide(index) {
-        // Remove active class from all slides and dots
-        slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        
-        // Add active class to current slide and dot
-        slides[index].classList.add('active');
-        dots[index].classList.add('active');
-        
-        currentSlide = index;
-    }
+// ===== Mobile Menu Toggle =====
+mobileMenuBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    const icon = mobileMenuBtn.querySelector('i');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-times');
+});
 
-    // Function to go to next slide
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-    }
-
-    // Function to go to previous slide
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        showSlide(currentSlide);
-    }
-
-    // Auto slide functionality
-    function startAutoSlide() {
-        autoSlideInterval = setInterval(nextSlide, 5000);
-    }
-
-    function stopAutoSlide() {
-        clearInterval(autoSlideInterval);
-    }
-
-    // Event listeners for navigation buttons
-    nextBtn.addEventListener('click', () => {
-        stopAutoSlide();
-        nextSlide();
-        startAutoSlide();
+// ===== Close mobile menu when clicking a link =====
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        const icon = mobileMenuBtn.querySelector('i');
+        icon.classList.add('fa-bars');
+        icon.classList.remove('fa-times');
     });
+});
 
-    prevBtn.addEventListener('click', () => {
-        stopAutoSlide();
-        prevSlide();
-        startAutoSlide();
-    });
+// ===== Active nav link on scroll =====
+function setActiveNavLink() {
+    const sections = document.querySelectorAll('section[id]');
+    const scrollPos = window.scrollY + 100;
 
-    // Event listeners for dots
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            stopAutoSlide();
-            showSlide(index);
-            startAutoSlide();
-        });
-    });
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
 
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') {
-            stopAutoSlide();
-            prevSlide();
-            startAutoSlide();
-        } else if (e.key === 'ArrowRight') {
-            stopAutoSlide();
-            nextSlide();
-            startAutoSlide();
+        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${sectionId}`) {
+                    link.classList.add('active');
+                }
+            });
         }
     });
+}
 
-    // Touch/swipe support for mobile
-    let touchStartX = 0;
-    let touchEndX = 0;
+window.addEventListener('scroll', setActiveNavLink);
 
-    const carousel = document.querySelector('.carousel');
+// ===== Header shadow on scroll =====
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) {
+        header.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+    } else {
+        header.style.boxShadow = 'none';
+    }
+});
+
+// ===== FAQ Accordion =====
+faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
     
-    carousel.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-        stopAutoSlide();
-    });
-
-    carousel.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-        startAutoSlide();
-    });
-
-    function handleSwipe() {
-        const swipeThreshold = 50;
-        const diff = touchStartX - touchEndX;
+    question.addEventListener('click', () => {
+        // Close other items
+        faqItems.forEach(otherItem => {
+            if (otherItem !== item && otherItem.classList.contains('active')) {
+                otherItem.classList.remove('active');
+            }
+        });
         
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0) {
-                nextSlide(); // Swipe left - next slide
-            } else {
-                prevSlide(); // Swipe right - previous slide
-            }
-        }
-    }
-
-    // Pause auto-slide on hover
-    carousel.addEventListener('mouseenter', stopAutoSlide);
-    carousel.addEventListener('mouseleave', startAutoSlide);
-
-    // Start auto-slide
-    startAutoSlide();
-
-    // Smooth scroll for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
+        // Toggle current item
+        item.classList.toggle('active');
     });
+});
 
-    // Add scroll effect to header
-    window.addEventListener('scroll', () => {
-        const header = document.querySelector('.header');
-        if (window.scrollY > 100) {
-            header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.3)';
-            header.style.background = 'rgba(102, 126, 234, 0.95)';
+// ===== Show Toast =====
+function showToast(message = 'Message sent successfully!') {
+    const toastMessage = toast.querySelector('.toast-message');
+    toastMessage.textContent = message;
+    toast.classList.add('show');
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 4000);
+}
+
+// ===== Form Submission Handler =====
+async function handleFormSubmit(form, formType) {
+    event.preventDefault();
+    
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+    
+    // Validate required fields
+    const requiredFields = form.querySelectorAll('[required]');
+    let isValid = true;
+    
+    requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+            isValid = false;
+            field.style.borderColor = '#EF4444';
         } else {
-            header.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
-            header.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+            field.style.borderColor = '';
         }
     });
+    
+    if (!isValid) {
+        showToast('Please fill in all required fields.');
+        return;
+    }
+    
+    // Get submit button
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    
+    // Show loading state
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    submitBtn.disabled = true;
+    
+    try {
+        // Simulate form submission (in production, replace with actual API call)
+        // For now, we'll use mailto as a fallback since we don't have a backend
+        await simulateSubmission(data, formType);
+        
+        // Show success message
+        showToast(formType === 'booking' 
+            ? 'Booking submitted successfully! We will contact you soon.' 
+            : 'Quote request sent! We will get back to you within 24 hours.');
+        
+        // Reset form
+        form.reset();
+        
+    } catch (error) {
+        showToast('Something went wrong. Please try again or call us directly.');
+    } finally {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+    }
+}
 
-    // Add animation to service cards on scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+// ===== Simulate form submission =====
+function simulateSubmission(data, formType) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            // Log data for debugging
+            console.log('Form submitted:', { type: formType, data });
+            
+            // In production, you would send this to your backend
+            // For demonstration, we'll create a mailto link as fallback
+            const subject = formType === 'booking' 
+                ? `Booking Request - ${data.bookingName}` 
+                : `Quote Request - ${data.name}`;
+            
+            let body = '';
+            
+            if (formType === 'booking') {
+                body = `
+Booking Details:
+----------------
+Name: ${data.bookingName}
+Email: ${data.bookingEmail}
+Phone: ${data.bookingPhone}
+Device: ${data.bookingDevice || 'Not specified'}
+Date: ${data.bookingDate}
+Time: ${data.bookingTime}
+Service: ${data.bookingService}
+Additional: ${data.bookingMessage || 'None'}
+                `.trim();
+            } else {
+                body = `
+Quote Request:
+--------------
+Name: ${data.name}
+Email: ${data.email}
+Phone: ${data.phone || 'Not provided'}
+Service: ${data.enquiryType}
+Message: ${data.message || 'None'}
+                `.trim();
             }
-        });
-    }, observerOptions);
-
-    // Observe service cards
-    document.querySelectorAll('.service-card').forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = `all 0.6s ease ${index * 0.2}s`;
-        observer.observe(card);
+            
+            // Open mailto (this is a fallback for demo purposes)
+            // In production, integrate with a form service like Formspree, Netlify Forms, etc.
+            // window.location.href = `mailto:yztechsolutions88@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            resolve({ success: true });
+        }, 1500);
     });
+}
 
-    // Observe contact items
-    document.querySelectorAll('.contact-item').forEach((item, index) => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(30px)';
-        item.style.transition = `all 0.6s ease ${index * 0.2}s`;
-        observer.observe(item);
+// ===== Set minimum date for booking =====
+function setMinBookingDate() {
+    const dateInput = document.querySelector('#bookingDate');
+    if (dateInput) {
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        
+        const year = tomorrow.getFullYear();
+        const month = String(tomorrow.getMonth() + 1).padStart(2, '0');
+        const day = String(tomorrow.getDate()).padStart(2, '0');
+        
+        dateInput.min = `${year}-${month}-${day}`;
+    }
+}
+
+// ===== Form event listeners =====
+if (quoteForm) {
+    quoteForm.addEventListener('submit', (e) => {
+        handleFormSubmit(quoteForm, 'quote');
     });
+}
+
+if (bookingForm) {
+    bookingForm.addEventListener('submit', (e) => {
+        handleFormSubmit(bookingForm, 'booking');
+    });
+    
+    // Set minimum date on load
+    setMinBookingDate();
+}
+
+// ===== Smooth scroll for anchor links =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        
+        if (target) {
+            const headerOffset = 80;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// ===== Initialize =====
+document.addEventListener('DOMContentLoaded', () => {
+    // Set initial active nav link
+    setActiveNavLink();
+    
+    // Set booking date constraints
+    setMinBookingDate();
 });
