@@ -30,12 +30,15 @@
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
                 <div class="nav-actions">
-                    <a href="tel:0451879888" class="btn btn-primary btn-sm">
-                        <i class="fas fa-phone"></i> 0451 879 888
-                    </a>
-                    <a href="tel:0447603233" class="btn btn-outline btn-sm">
-                        <i class="fas fa-user-tie"></i> Repair Manager 0447 603 233
-                    </a>
+                    <div class="btn-group">
+                        <a href="tel:0451879888" class="btn btn-primary btn-sm">
+                            <i class="fas fa-phone"></i> 0451 879 888
+                        </a>
+                        <span class="btn-separator">|</span>
+                        <a href="tel:0447603233" class="btn btn-primary btn-sm">
+                            <i class="fas fa-user-tie"></i> 0447 603 233
+                        </a>
+                    </div>
                     <button class="mobile-menu-btn" id="mobileMenuBtn">
                         <i class="fas fa-bars"></i>
                     </button>
@@ -478,7 +481,7 @@
                             <i class="fas fa-user-tie"></i>
                         </div>
                         <div class="contact-details">
-                            <h4>Repair Manager</h4>
+                            <h4>Phone</h4>
                             <a href="tel:0447603233">0447 603 233</a>
                         </div>
                     </div>
@@ -510,6 +513,16 @@
                         <a href="https://www.linkedin.com/in/yong-zhen-047997416" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                         <a href="https://www.reddit.com/u/YZmobiletechsloution/s/aBEfRJAo3U" class="social-icon" title="Reddit"><i class="fab fa-reddit"></i></a>
                         <a href="https://wa.me/61451879888" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                    <div class="qr-display">
+                        <div class="qr-item">
+                            <img src="images/Ins.png" alt="Instagram QR Code" class="qr-img" data-src="images/Ins.png">
+                            <span class="qr-label">Instagram</span>
+                        </div>
+                        <div class="qr-item">
+                            <img src="images/wechat.png" alt="WeChat QR Code" class="qr-img" data-src="images/wechat.png">
+                            <span class="qr-label">WeChat</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -567,7 +580,7 @@
                         </li>
                         <li>
                             <i class="fas fa-user-tie"></i>
-                            <a href="tel:0447603233">0447 603 233 (Repair Manager)</a>
+                            <a href="tel:0447603233">0447 603 233</a>
                         </li>
                         <li>
                             <i class="fas fa-envelope"></i>
@@ -589,6 +602,15 @@
             </div>
         </div>
     </footer>
+
+    <!-- QR Code Modal -->
+    <div class="qr-modal" id="qrModal">
+        <div class="qr-overlay"></div>
+        <div class="qr-content">
+            <button class="qr-close" id="qrClose"><i class="fas fa-times"></i></button>
+            <img id="qrImage" src="" alt="QR Code" class="qr-image">
+        </div>
+    </div>
 
     <!-- Toast Notification -->
     <div class="toast" id="toast">

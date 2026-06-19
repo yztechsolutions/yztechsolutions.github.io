@@ -7,6 +7,10 @@ const faqItems = document.querySelectorAll('.faq-item');
 const quoteForm = document.querySelector('#quoteFormEl');
 const bookingForm = document.querySelector('#bookingForm');
 const toast = document.querySelector('#toast');
+const qrModal = document.querySelector('#qrModal');
+const qrClose = document.querySelector('#qrClose');
+const qrImage = document.querySelector('#qrImage');
+const qrImgs = document.querySelectorAll('.qr-img');
 
 // ===== Mobile Menu Toggle =====
 mobileMenuBtn.addEventListener('click', () => {
@@ -248,3 +252,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set booking date constraints
     setMinBookingDate();
 });
+
+// ===== QR Code Modal =====
+function openQrModal(src) {
+    qrImage.src = src;
+    qrModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeQrModal() {
+    qrModal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+qrImgs.forEach(img => {
+    img.addEventListener('click', () => {
+        openQrModal(img.getAttribute('data-src'));
+    });
+});
+
+qrClose.addEventListener('click', closeQrModal);
+
+document.querySelector('.qr-overlay').addEventListener('click', closeQrModal);

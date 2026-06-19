@@ -221,6 +221,35 @@ img {
     gap: 16px;
 }
 
+.btn-group {
+    display: inline-flex;
+    align-items: center;
+    background: var(--primary);
+    border-radius: var(--radius);
+    padding: 4px 8px;
+    gap: 4px;
+}
+
+.btn-group .btn {
+    background: transparent;
+    border-color: transparent;
+    padding: 6px 12px;
+    font-size: 14px;
+}
+
+.btn-group .btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: none;
+    box-shadow: none;
+}
+
+.btn-separator {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    font-weight: 600;
+    user-select: none;
+}
+
 .mobile-menu-btn {
     display: none;
     width: 44px;
@@ -1133,6 +1162,42 @@ img {
     transform: translateY(-2px);
 }
 
+.qr-display {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
+.qr-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.qr-img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: var(--radius);
+    cursor: zoom-in;
+    transition: var(--transition);
+    background: white;
+    padding: 8px;
+}
+
+.qr-img:hover {
+    transform: scale(1.05);
+}
+
+.qr-label {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+}
+
 .contact-form-wrapper {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1301,6 +1366,83 @@ img {
     color: rgba(255, 255, 255, 0.4);
 }
 
+/* ===== QR Code Modal ===== */
+.qr-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.qr-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.qr-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.qr-content {
+    position: relative;
+    background: transparent;
+    padding: 0;
+    max-width: 90%;
+    max-height: 90%;
+    text-align: center;
+    transform: scale(0.9);
+    transition: var(--transition);
+}
+
+.qr-modal.active .qr-content {
+    transform: scale(1);
+}
+
+.qr-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    color: var(--white);
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.qr-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.qr-image {
+    max-width: 100%;
+    max-height: 80vh;
+    height: auto;
+    display: block;
+    border-radius: var(--radius);
+    background: white;
+    padding: 16px;
+}
+
 /* ===== Toast ===== */
 .toast {
     position: fixed;
@@ -1424,9 +1566,27 @@ img {
     }
     
     .mobile-menu-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: none;
+    }
+    
+    .btn-group {
+        flex-direction: column;
+        padding: 4px;
+        gap: 4px;
+    }
+    
+    .btn-group .btn {
+        padding: 8px 16px;
+        text-align: center;
+    }
+    
+    .btn-separator {
+        display: none;
+    }
+    
+    .nav {
+        height: auto;
+        padding: 12px 0;
     }
     
     .hero {
